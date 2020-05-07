@@ -2,6 +2,7 @@ title: Home Assistant - сервер
 views:
 
   - title: Главная
+    id: main
     icon: mdi:home-assistant
     
     cards:
@@ -29,6 +30,12 @@ views:
             - entity: sensor.maria_db_size
               name: Объем БД
               icon: mdi:database
+              
+        - type: gauge
+          name: Температура CPU
+          unit: '°C'
+          entity: sensor.cpu_temperature
+          scan_interval: 30
 
       - type: vertical-stack
         cards:
@@ -72,6 +79,8 @@ views:
            - type: gauge
              name: Свободное место
              unit: 'Гб'
+             min: 0
+             max: 64
              entity: sensor.disk_free
              severity:
                 red: 2
