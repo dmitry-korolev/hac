@@ -14,11 +14,19 @@ default_config:
 # http:
 #   base_url: example.duckdns.org:8123
 
+lovelace:
+  mode: yaml
+
 # Text to speech
 tts:
   - platform: google_translate
 
-group: !include groups.yaml
-automation: !include automations.yaml
-script: !include scripts.yaml
-scene: !include scenes.yaml
+group: !include includes/groups.yaml
+automation: !include includes/automations.yaml
+script: !include includes/scripts.yaml
+scene: !include includes/scenes.yaml
+recorder: !include includes/recorder.yaml
+yeelight: !include includes/yeelight.yaml
+
+
+sensor: !include_dir_merge_list includes/sensors
