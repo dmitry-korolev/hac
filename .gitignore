@@ -1,20 +1,21 @@
-# An * ensures that everything will be ignored.
-*
-
-# Whitelist
-!*.yaml
-!.gitignore
-!*.md
-!/node-red/flows.json
-!*.png
-!/www/fp/*
+.HA_VERSION
 
 # Ignore folders.
 .storage
 .cloud
 .google.token
+custom_components
+node-red
+themes
+tts
+www/community
 
 # Security
 ip_bans.yaml
 secrets.yaml
 known_devices.yaml
+
+# Other
+*.log
+*.db
+webostv.conf
