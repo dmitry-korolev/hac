@@ -1,0 +1,25 @@
+# Сенсоры
+## Датчик температуры и влажности в ванной
+sensor.0x00158d00025e8a61_temperature:
+  friendly_name: Датчик температуры
+  device_class: temperature
+
+sensor.0x00158d00025e8a61_humidity:
+  friendly_name: Датчик влажности
+  device_class: humidity
+
+sensor.0x00158d00025e8a61_battery:
+  friendly_name: Заряд батареи
+  device_class: battery
+
+
+# Выключатели и розетки
+## Выключатель света в гардеробе
+switch.0x00158d0002c57b8d_switch:
+  friendly_name: Свет в гардеробе
+  
+sensor.0x00158d0002c57b8d_power:
+  friendly_name: Потребление выключателя в гардеробе
+
+sensor.0x00158d0002c57b8d_click:
+  friendly_name: Кнопка выключателя

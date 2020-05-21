@@ -5,28 +5,95 @@ homeassistant:
   elevation: 180
   unit_system: metric
   time_zone: Europe/Moscow
+  customize: !include customize.yaml
   
   
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
-# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-# http:
-#   base_url: example.duckdns.org:8123
-
+# UI
+frontend:
+  themes: !include_dir_merge_named themes
 lovelace:
   mode: yaml
+  resources:
+  - url: /hacsfiles/lovelace-layout-card/layout-card.js
+    type: module
+  - url: /hacsfiles/lovelace-state-switch/state-switch.js
+    type: module
+  - url: /hacsfiles/lovelace-card-mod/card-mod.js
+    type: module
+  - url: /local/color-light-card.js
+    type: module
 
 # Text to speech
 tts:
   - platform: google_translate
+  
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
 
+# Services
+wake_on_lan:
+timer: !include includes/timer.yaml
+input_boolean: !include includes/input_boolean.yaml
 group: !include includes/groups.yaml
-automation: !include includes/automations.yaml
 script: !include includes/scripts.yaml
 scene: !include includes/scenes.yaml
 recorder: !include includes/recorder.yaml
 yeelight: !include includes/yeelight.yaml
 
+tuya:
+  username: !secret tuya_login
+  password: !secret tuya_password
+  country_code: 7
+  
+remote:
+  - platform: xiaomi_miio
+    name: "Спальня — пульт"
+    host: !secret ip_bedroom_remote
+    token: !secret token_bedroom_remote
+  
+webostv:
+  host: 192.168.1.8
+  #other settings
+  turn_on_action:
+    service: wake_on_lan.send_magic_packet
+    data:
+      mac: 44-CB-8B-1B-FA-EA
 
 sensor: !include_dir_merge_list includes/sensors
+automation: !include_dir_merge_list includes/auto
+
+xiaomi_aqara:
+  discovery_retry: 10
+  gateways:
+    - mac: 78:11:DC:E1:F2:70
+      key: !secret token_gateway_main
+      host: !secret ip_gateway_main
+    - mac: 50:EC:50:C4:E8:3B
+      key: !secret token_gateway_guestroom
+      host: !secret ip_gateway_guestroom
+
+mqtt:
+  broker: core-mosquitto
+  discovery: true
+  discovery_prefix: homeassistant  
+  username: mqtt
+  password: mqtt
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

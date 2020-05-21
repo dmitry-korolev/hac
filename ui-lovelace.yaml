@@ -1,19 +1,45 @@
 title: Home Assistant - сервер
 views:
+  - title: Floor plan
+    id: main
+    icon: mdi:home-assistant
+    panel: true
+    cards:
+      - type: picture-elements
+        image: /local/fp/base.png
+        style: |
+          ha-card {
+            box-shadow: none;
+          }
+          
+          hui-state-icon-element {
+            # border: 2px solid;
+            border-radius: 50%;
+            # background-color: rgba(255, 255, 255, 0.5);
+          }
+        elements: !include includes/ui/floorplan.yaml
+
+
 
   - title: Главная
-    id: main
     icon: mdi:home-assistant
     
     cards:
 
       - type: vertical-stack
         cards:
-        
+
+        - type: media-control
+          title: TV
+          entity: media_player.lg_webos_smart_tv_2
+
+        - type: media-control
+          entity: media_player.televizor_v_spalne
+
         - type: markdown
           content: >
              **Текущее состояние**
-             
+
         - type: entities
           show_header_toggle: false
           entities:
@@ -23,14 +49,14 @@ views:
             - entity: sensor.date
               name: Дата
               icon: mdi:calendar-check-outline
-              
+
         - type: entities
           show_header_toggle: false
           entities:
             - entity: sensor.maria_db_size
               name: Объем БД
               icon: mdi:database
-              
+
         - type: gauge
           name: Температура CPU
           unit: '°C'
@@ -101,29 +127,29 @@ views:
         - type: weather-forecast
           entity: weather.home_assistant 
 
-
   - title: Освещение
     icon: mdi:home-lightbulb
-    
     cards:
+      - type: horizontal-stack
+        cards:
+          - type: light
+            entity: light.yeelight_ceiling
+            name: Лидина люстра
 
-        - type: entities
-          show_header_toggle: false
-          entities:
-            - entity: light.yeelight_strip_2
-          
-        - type: light
-          entity: light.yeelight_strip_2
-          name: Лента
-          
-          
-          
-          
-          
-          
-          
-          
-          
+          - type: light
+            entity: light.yeelight_ceiling_ambilight
+            name: Лидина люстра (подсветка)
+
+      - type: horizontal-stack
+        cards:
+          - type: light
+            entity: light.podsvetka_kukhni
+            name: Лента
+            
+          - type: light
+            entity: light.yeelight_strip_2
+            name: Лента
+
           
           
           
