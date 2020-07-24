@@ -1,97 +1,137 @@
-const transparent = 'display: none!important;'
+const cardTemplage = document.createElement('template')
+cardTemplage.innerHTML = `
+  <style>
+  :host {
+    background: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0)!important;
+  }
 
-class ColorLite extends HTMLElement {
+  img {
+    mix-blend-mode: lighten;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  </style>
+`
+
+const transparent = 'filter: none; display: none;'
+
+const getState = (state, image) => ({
+  entity: image.entity,
+  type: image.type,
+  state: state.state,
+  hs_color: state.attributes.hs_color,
+  brightness: state.attributes.brightness
+})
+
+const stateChanged = (oldState, newState) => {
+  return (
+    (oldState.state !== newState.state)
+    || (oldState.hs_color !== newState.hs_color)
+    || (oldState.brightness !== newState.brightness)
+  )
+}
+
+const getInitialUpdates = (config, newHass) => {
+  const updates = []
+
+  for (let image of config.images) {
+    updates.push(getState(newHass.states[image.entity], image))
+  }
+
+  return updates
+}
+
+const getUpdates = (config, newHass, oldHass) => {
+  if (!oldHass) {
+    return getInitialUpdates(config, newHass)
+  }
+  
+  const updates = []
+
+  for (let image of config.images) {
+    const newState = getState(newHass.states[image.entity], image)
+    const oldState = getState(oldHass.states[image.entity], image)
+
+    if (stateChanged(newState, oldState)) {
+      updates.push(newState)
+    }
+  }
+
+  return updates
+}
+
+class ColorLight extends HTMLElement {
+  constructor() {
+    super()
+    
+    this.imageElements = {}
+    const template = cardTemplage.content.cloneNode(true)
+    this.shadow = this.attachShadow({ mode: 'closed' })
+    this.shadow.appendChild(template)
+  }
+  
   connectedCallback() {
-    this.card = document.createElement('ha-card');
-    const container = document.createElement('div');
+    const { images } = this.config
 
-    this.card.appendChild(container);
-    this.card.style.background = 'none';
-    
-    this.appendChild(this.card);
-    
-    const { image, color_image } = this.config
-    
-    this.imageElement = document.createElement('img')
-    this.imageElement.setAttribute('width', '100%')
-    this.imageElement.setAttribute('height', '100%')
-    this.colorImageElement = document.createElement('img')
-    this.colorImageElement.setAttribute('width', '100%')
-    this.colorImageElement.setAttribute('height', '100%')
+    const container = document.createDocumentFragment()
 
-    if (image) {
-      this.imageElement.setAttribute('src', image)
+    for (let image of images) {
+      const imageElement = document.createElement('img')
+      imageElement.setAttribute('height', '100%')
+      imageElement.setAttribute('width', '100%')
+      imageElement.setAttribute('src', image.image)
+      imageElement.setAttribute('style', transparent)
+      container.appendChild(imageElement)
+
+      this.imageElements[image.entity] = imageElement
     }
 
-    if (color_image) {
-      this.colorImageElement.setAttribute('src', color_image)
-    }
-
-    container.appendChild(this.imageElement)
-    container.appendChild(this.colorImageElement)
-
-    this.update()
+    this.shadow.appendChild(container)
+    this.connected = true
   }
   
   setConfig(config) {
-    if (!config.entity) {
-      throw new Error('You need to define an entity');
-    }
-    
-    this.config = config;
+    this.config = config
   }
   
   set hass(hass) {
-    console.log(hass)
-    
     if (!hass) return
-    
-    this.state = hass.states[this.config.entity]
-    
-    if (!this.card) {
-      return
-    }
-    
-    this.update();
-  }
-  
-  update() {
-    if (!this.state) {
-      return
-    }
-    
-    if (this.state.state === 'off') {
-      this.imageElement.setAttribute('style', transparent)
-      this.colorImageElement.setAttribute('style', transparent)
-      
-      return;
-    }
+    if (!this.connected) return
 
-    const rgb_color = this.state.attributes.rgb_color
-    const hs_color = this.state.attributes.hs_color
-    const brightness = Math.min(1, this.state.attributes.brightness / 200) || 1
-    let hue = ''
-
-    if (hs_color && rgb_color !== '255,255,255') {
-      hue = ' hue-rotate(' + hs_color[0] + 'deg)'
-    }
+    const updates = getUpdates(this.config, hass, this._hass)
     
-    let style = `display: initial; filter: opacity(${brightness})${hue}!important`
-    
-    if (hue) {
-      this.colorImageElement.setAttribute('style', style)
-      this.imageElement.setAttribute('style', transparent)
-    } else {
-      this.imageElement.setAttribute('style', style)
-      this.colorImageElement.setAttribute('style', transparent)
+    if (updates.length) {
+      this._hass = hass
+      this.update(updates)
+      console.log(updates)
     }
   }
-  
-    // The height of your card. Home Assistant uses this to automatically
-    // distribute all cards over the available columns.
-    getCardSize() {
-        return 3;
-    }
+
+  update(updates) {
+    updates.forEach(({ entity, state, hs_color, brightness }) => {
+      const imageElement = this.imageElements[entity]
+
+      if (state === 'off') {
+        imageElement.setAttribute('style', transparent)
+        return
+      }
+
+      const hue = 'hue-rotate(' + (hs_color ? hs_color[0] : 0) + 'deg)'
+      const filter = `filter: opacity(${brightness}) ${hue}!important;`
+
+      imageElement.setAttribute('style', filter)
+    });
+  }
+
+  getCardSize() {
+      return 3;
+  }
 }
 
-customElements.define('color-lite-card', ColorLite);
+customElements.define('color-light-card', ColorLight);

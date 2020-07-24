@@ -28,3 +28,15 @@
     command: "cat /sys/class/thermal/thermal_zone0/temp"
     unit_of_measurement: "°C"
     value_template: '{{ value | multiply(0.001) | round(1) }}'
+    
+  - platform: statistics
+    name: Humidity A
+    entity_id: sensor.0x00158d00025e8a61_humidity
+    max_age:
+      hours: 2
+
+  - platform: statistics
+    name: Humidity D
+    entity_id: sensor.0x00158d000236775d_humidity
+    max_age:
+      hours: 2

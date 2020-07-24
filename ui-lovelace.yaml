@@ -1,28 +1,301 @@
+resources:
+  - url: /hacsfiles/lovelace-layout-card/layout-card.js
+    type: module
+  - url: /hacsfiles/lovelace-state-switch/state-switch.js
+    type: module
+  - url: /hacsfiles/lovelace-card-mod/card-mod.js
+    type: module
+  - url: local/color-light-card.js?v=15
+    type: module
+  - url: /hacsfiles/custom-header/custom-header.js
+    type: module
+  - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
+    type: module
+
 title: Home Assistant - сервер
 views:
   - title: Floor plan
     id: main
     icon: mdi:home-assistant
-    panel: true
+    panel: false
     cards:
-      - type: picture-elements
-        image: /local/fp/base.png
-        style: |
-          ha-card {
-            box-shadow: none;
-          }
-          
-          hui-state-icon-element {
-            # border: 2px solid;
-            border-radius: 50%;
-            # background-color: rgba(255, 255, 255, 0.5);
-          }
-        elements: !include includes/ui/floorplan.yaml
+
+      # - type: horizontal-stack
+      #   style:  
+      #     padding: 10px
+      #   cards:
+        - type: vertical-stack
+          cards:
+
+          - type: picture-elements
+            image: /local/fp/base.png
+            style: |
+              hui-state-icon-element {
+                # border: 2px solid;
+                border-radius: 50%;
+                zoom: 0.8;
+                # background-color: rgba(255, 255, 255, 0.5);
+              }
+
+              hui-error-card {
+                top: 50%;
+                left: 50%;
+              }
+            elements:
+              # Фото
+              ## Кабинет
+              - type: custom:color-light-card
+                images:
+                  # Кабинет
+                  - image: /local/fp/cabinet.png
+                    entity: switch.0x00158d0002c5e4a2_switch
+
+                  # Спальня
+                  - image: /local/fp/bedroom-side.png
+                    entity: switch.0x00158d0002f9b17b_switch_right
+                  - image: /local/fp/bedroom-main.png
+                    entity: switch.0x00158d0002f9b17b_switch_left
+
+                  # Детская
+                  # - entity: light.yeelight_ceiling_ambilight
+                  #   image: /local/fp/kids-color.png
+                  #   type: color
+                  - entity: light.yeelight_ceiling
+                    image: /local/fp/kids.png
+                  
+                  # Гардеробная (д)
+                  - entity: switch.0x00158d0002c5ff27_switch
+                    image: /local/fp/wardrobe-d.png
+
+                  # Гардеробная
+                  - entity: switch.0x00158d0002c57b8d_switch
+                    image: /local/fp/wardrobe-main.png
+                  - entity: switch.0x00158d0003536e36_switch
+                    image: /local/fp/wardrobe-led.png
+
+                  # Балкон
+                  - entity: switch.0x00158d0003455ca6_switch
+                    image: /local/fp/balcony.png
+
+                  # Санузел
+                  - entity: switch.0x00158d0002f9b20a_switch_left
+                    image: /local/fp/bathroom.png
+
+                  # Санузел (д)
+                  - entity: switch.0x00158d0002f9b1e5_switch_left
+                    image: /local/fp/bathroom-d.png
+                  
+                  # Коридор
+                  - entity: switch.0x00158d0002f9cb46_switch_right
+                    image: /local/fp/hallway.png
+                  
+                  # Гостиная
+                  - entity: switch.0x00158d0002f93e70_switch_left
+                    image: /local/fp/guestroom.png
+
+                  # Кухня
+                  - entity: switch.0x00158d0002f9b743_switch_right
+                    image: /local/fp/kitchen-left.png
+                  - entity: switch.0x00158d0002c5db53_switch
+                    image: /local/fp/kitchen-main.png
+                  - entity: switch.0x00158d0002f9b743_switch_left
+                    image: /local/fp/kitchen-right.png
+                  # - entity: light.podsvetka_kukhni
+                  #   image: /local/fp/guestroom-color.png
+
+              # Иконки
+              ## Кухня
+              - type: state-icon
+                entity: switch.0x00158d0002f9b743_switch_right
+                icon: mdi:wall-sconce-flat
+                tap_action:
+                  action: toggle
+                style:
+                  top: 54%
+                  left: 31%
+                  
+              - type: state-icon
+                entity: switch.0x00158d0002c5db53_switch
+                icon: mdi:ceiling-light
+                tap_action:
+                  action: toggle
+                style:
+                  top: 48%
+                  left: 35%
+                  
+              - type: state-icon
+                entity: switch.0x00158d0002f9b743_switch_left
+                icon: mdi:wall-sconce-flat
+                tap_action:
+                  action: toggle
+                style:
+                  top: 42%
+                  left: 40%
+              
+              ## Гостиная
+              - type: state-icon
+                entity: switch.0x00158d0002f93e70_switch_left
+                icon: mdi:ceiling-light
+                tap_action:
+                  action: toggle
+                style:
+                  top: 61%
+                  left: 47%
+              
+              ## Коридор
+              - type: state-icon
+                entity: switch.0x00158d0002f9cb46_switch_right
+                icon: mdi:wall-sconce-flat
+                tap_action:
+                  action: toggle
+                style:
+                  top: 35%
+                  left: 65.5%
+              
+              ## Спальня
+              - type: state-icon
+                entity: switch.0x00158d0002f9b17b_switch_left
+                icon: mdi:ceiling-light
+                tap_action:
+                  action: toggle
+                style:
+                  top: 33%
+                  left: 27%
+                  
+              - type: state-icon
+                entity: switch.0x00158d0002f9b17b_switch_right
+                icon: mdi:wall-sconce-flat
+                tap_action:
+                  action: toggle
+                style:
+                  top: 44%
+                  left: 18%
+                  
+              ## Детская
+              - type: state-icon
+                entity: light.yeelight_ceiling
+                icon: mdi:ceiling-light
+                tap_action:
+                  action: toggle
+                style:
+                  top: 67%
+                  left: 61.5%
+                  
+              ## Гардеробная (д)
+              - type: state-icon
+                entity: switch.0x00158d0002c5ff27_switch
+                icon: mdi:wall-sconce-flat
+                tap_action:
+                  action: toggle
+                style:
+                  top: 50.2%
+                  left: 69.7%
+              
+              ## Гардеробная
+              - type: state-icon
+                entity: switch.0x00158d0002c57b8d_switch
+                icon: mdi:wall-sconce-flat
+                tap_action:
+                  action: toggle
+                style:
+                  top: 23%
+                  left: 32.3%
+                  
+              - type: state-icon
+                entity: switch.0x00158d0003536e36_switch
+                icon: mdi:led-strip
+                tap_action:
+                  action: toggle
+                style:
+                  top: 27%
+                  left: 38.7%
+              
+              ## Балкон
+              - type: state-icon
+                entity: switch.0x00158d0003455ca6_switch
+                icon: mdi:wall-sconce-flat
+                tap_action:
+                  action: toggle
+                style:
+                  top: 75%
+                  left: 72%
+              
+              ## Санузел
+              - type: state-icon
+                entity: switch.0x00158d0002f9b20a_switch_left
+                icon: mdi:wall-sconce-flat
+                tap_action:
+                  action: toggle
+                style:
+                  top: 32%
+                  left: 47.8%
+                  
+              # - type: state-icon
+              #   entity: switch.0x00158d0002f9b20a_switch_right
+              #   icon: mdi:fan
+              #   tap_action:
+              #     action: toggle
+              #   style:
+              #     top: 34%
+              #     left: 44%
+              
+              ## Санузел (д)
+              - type: state-icon
+                entity: switch.0x00158d0002f9b1e5_switch_left
+                icon: mdi:wall-sconce-flat
+                tap_action:
+                  action: toggle
+                style:
+                  top: 39%
+                  left: 54%
+                  
+              # - type: state-icon
+              #   entity: switch.0x00158d0002f9b1e5_switch_right
+              #   icon: mdi:fan
+              #   tap_action:
+              #     action: toggle
+              #   style:
+              #     top: 34%
+              #     left: 56%
+              
+              ## Кабинет
+              - type: state-icon
+                entity: switch.0x00158d0002c5e4a2_switch
+                icon: mdi:ceiling-light
+                tap_action:
+                  action: toggle
+                hold_action: 
+                  action: call-service
+                  service: browser_mod.popup
+                  service_data:
+                    title: Кабинет
+                    card:
+                      type: entities
+                      entities:
+                        - entity: switch.0x00158d0002c5e4a2_switch
+                          name: Основной свет
+                          icon: mdi:ceiling-light
+                    deviceID: this
+                style:
+                  top: 39%
+                  left: 76%
 
 
+        - type: vertical-stack
+          cards:
+            - type: weather-forecast
+              entity: weather.home_assistant
+            - type: entities
+              entities:
+                - input_boolean.night_mode
+                - sensor.primary_lights
+                - sensor.bedroom_lights
+                - sensor.0x00158d00025e8a61_temperature
+                - sensor.0x00158d00025e8a61_linkquality
 
-  - title: Главная
-    icon: mdi:home-assistant
+
+  - title: Media
+    icon: mdi:play-network
     
     cards:
 
@@ -35,97 +308,52 @@ views:
 
         - type: media-control
           entity: media_player.televizor_v_spalne
-
-        - type: markdown
-          content: >
-             **Текущее состояние**
-
-        - type: entities
-          show_header_toggle: false
-          entities:
-            - entity: sensor.time
-              name: Текущее время
-              icon: mdi:clock-outline
-            - entity: sensor.date
-              name: Дата
-              icon: mdi:calendar-check-outline
-
-        - type: entities
-          show_header_toggle: false
-          entities:
-            - entity: sensor.maria_db_size
-              name: Объем БД
-              icon: mdi:database
-
-        - type: gauge
-          name: Температура CPU
-          unit: '°C'
-          entity: sensor.cpu_temperature
-          scan_interval: 30
-
+          
+        - type: media-control
+          entity: media_player.yandex_station_14007894c1205c100650                          
+              
+  - title: System
+    icon: mdi:raspberry-pi 
+    cards:
       - type: vertical-stack
         cards:
-        - type: markdown
-          content: >
-             **Графики** 
+        - type: horizontal-stack
+          cards:
+            - type: custom:mini-graph-card
+              entities:
+                - entity: sensor.cpu_temperature
+
+            - type: custom:mini-graph-card
+              entities:
+                - entity: sensor.processor_use
+                  
+        - type: horizontal-stack
+          cards:
+            - type: custom:mini-graph-card
+              entities:
+                - entity: sensor.disk_use_percent
+
+            - type: custom:mini-graph-card
+              entities:
+                - entity: sensor.disk_free
+
 
         - type: horizontal-stack
           cards:
+          - type: custom:mini-graph-card
+            icon: mdi:database
+            entities:
+              - entity: sensor.maria_db_size
+                name: Maria DB
+          - type: custom:mini-graph-card
+            icon: mdi:database
+            entities:
+              - entity: sensor.memory_use_percent
 
-           - type: gauge
-             name: Загрузка CPU
-             unit: '%'
-             entity: sensor.processor_use
-             severity:
-                green: 0
-                yellow: 60
-                red: 85
-             
-           - type: gauge
-             name: Загрузка ОЗУ
-             unit: '%'
-             entity: sensor.memory_use_percent
-             severity:
-                green: 0
-                yellow: 60
-                red: 85
-                
-        - type: horizontal-stack
-          cards:
 
-           - type: gauge
-             name: Диск заполнен
-             unit: '%'
-             entity: sensor.disk_use_percent
-             severity:
-                green: 0
-                yellow: 60
-                red: 85    
-                
-           - type: gauge
-             name: Свободное место
-             unit: 'Гб'
-             min: 0
-             max: 64
-             entity: sensor.disk_free
-             severity:
-                red: 2
-                yellow: 6
-                green: 8
-                
-        - type: history-graph
-          entities:
-           - entity: sensor.maria_db_size
-             name: Maria DB
-                
-              
-  - title: Погода
-    icon: mdi:weather-partly-snowy-rainy
-    
-    cards:
 
-        - type: weather-forecast
-          entity: weather.home_assistant 
+      
+
 
   - title: Освещение
     icon: mdi:home-lightbulb
@@ -145,16 +373,5 @@ views:
           - type: light
             entity: light.podsvetka_kukhni
             name: Лента
-            
-          - type: light
-            entity: light.yeelight_strip_2
-            name: Лента
 
-          
-          
-          
-          
-          
-          
-          
           

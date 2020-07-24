@@ -6,10 +6,6 @@ devices:
 
   192.168.1.22:
     name: Подсветка кухни
-    transition: 0
+    transition: 1000
     model: strip1
-    
-  192.168.1.23:
-    name: yeelight_strip_2
-    transition: 0
-    model: strip1
+    nightlight_switch_type: light

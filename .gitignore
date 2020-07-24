@@ -19,3 +19,4 @@ known_devices.yaml
 *.log
 *.db
 webostv.conf
+.yandex_station.txt

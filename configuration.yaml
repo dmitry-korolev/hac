@@ -6,33 +6,21 @@ homeassistant:
   unit_system: metric
   time_zone: Europe/Moscow
   customize: !include customize.yaml
-  
+  auth_mfa_modules:
+    - type: totp
   
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
-
+  
 # UI
 frontend:
   themes: !include_dir_merge_named themes
 lovelace:
   mode: yaml
-  resources:
-  - url: /hacsfiles/lovelace-layout-card/layout-card.js
-    type: module
-  - url: /hacsfiles/lovelace-state-switch/state-switch.js
-    type: module
-  - url: /hacsfiles/lovelace-card-mod/card-mod.js
-    type: module
-  - url: /local/color-light-card.js
-    type: module
-
-# Text to speech
-tts:
-  - platform: google_translate
   
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 # http:
-#   base_url: example.duckdns.org:8123
+#   base_url: https://home.korolev.dk
 
 # Services
 wake_on_lan:
@@ -43,15 +31,10 @@ script: !include includes/scripts.yaml
 scene: !include includes/scenes.yaml
 recorder: !include includes/recorder.yaml
 yeelight: !include includes/yeelight.yaml
-
-tuya:
-  username: !secret tuya_login
-  password: !secret tuya_password
-  country_code: 7
   
 remote:
   - platform: xiaomi_miio
-    name: "Спальня — пульт"
+    name: "Спальня - пульт"
     host: !secret ip_bedroom_remote
     token: !secret token_bedroom_remote
   
@@ -66,34 +49,83 @@ webostv:
 sensor: !include_dir_merge_list includes/sensors
 automation: !include_dir_merge_list includes/auto
 
-xiaomi_aqara:
-  discovery_retry: 10
-  gateways:
-    - mac: 78:11:DC:E1:F2:70
-      key: !secret token_gateway_main
-      host: !secret ip_gateway_main
-    - mac: 50:EC:50:C4:E8:3B
-      key: !secret token_gateway_guestroom
-      host: !secret ip_gateway_guestroom
-
 mqtt:
   broker: core-mosquitto
   discovery: true
   discovery_prefix: homeassistant  
   username: mqtt
   password: mqtt
+
+telegram_bot:
+  - platform: polling
+    api_key: !secret token_telegram
+    allowed_chat_ids:
+      - !secret id_dima
+
+notify:
+  - name: NOTIFY_DIMA
+    platform: telegram
+    chat_id: !secret id_dima
+
+yandex_station:
+  username: !secret yandex_login
+  password: !secret yandex_password
+  intents:
+    Покажи сообщение: ага
+    Какая температура в комнате: .
+    Какая влажность в комнате: .
   
+yandex_smart_home:
+  filter:
+    include_entities:
+      - switch.0x00158d0002f9b20a_switch_left # санузел—свет
+      - switch.0x00158d0002f9b20a_switch_right # санузел—вентиляция
+      - switch.0x00158d0003455ca6_switch # балкон-выключатель
+      - switch.0x00158d0002c5ff27_switch # гардероб(д)-выключатель
+      - switch.0x00158d0002c57b8d_switch # гардероб-выключатель
+      - switch.0x00158d0002c5e4a2_switch # Выключатель в кабинете
+      - switch.0x00158d0002f9cb46_switch_right # коридор—выключатель
+      - switch.0x00158d0002f93e70_switch_left # гостиная—выключатель
+      - switch.0x00158d0002f9b743_switch_left # кухня-группа в проходе
+      - switch.0x00158d0002f9b743_switch_right # кухня-группа у окна
+      - switch.0x00158d0002c5db53_switch # кухня-люстра
+      - switch.0x00158d0002f9b1e5_switch_left  # санузел-д—свет
+      - switch.0x00158d0002f9b1e5_switch_right # санузел—д-вентиляция
+      - switch.0x00158d0002f9b17b_switch_left # спальня-основной свет
+      - switch.0x00158d0002f9b17b_switch_right # спальня-группа у окна
+      - light.0x00158d0004248f9c_light # лампочка димы
+      - input_boolean.night_mode
+      - media_player.yandex_intents
+      - media_player.lg_webos_smart_tv_2
+  entity_config:
+    input_boolean.night_mode:
+      name: Ночной режим
+      type: devices.types.switch
+    media_player.lg_webos_smart_tv_2:
+      name: Телевизор
+      type: devices.types.media_device.tv
+      sources:
+        one: "MEGOGO ТВ и Кино"
+        two: "Netflix"
+        three: "КиноПоиск HD"
+        four: "Алиса"
+        five: "PS4"
+        
 
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+browser_mod:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

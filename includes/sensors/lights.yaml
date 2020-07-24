@@ -1,0 +1,28 @@
+- platform: template
+  sensors:
+    primary_lights:
+      friendly_name: "Основной свет"
+      value_template: >-
+        {%
+          if is_state('switch.0x00158d0002f9b743_switch_left', 'off') and
+          is_state('switch.0x00158d0002c5db53_switch', 'off') and
+          is_state('switch.0x00158d0002f9b743_switch_right', 'off') and
+          is_state('switch.0x00158d0002f93e70_switch_left', 'off') and
+          is_state('switch.0x00158d0002f9cb46_switch_right', 'off')
+        -%}
+          off
+        {%- else -%}
+          on
+        {%- endif %}
+        
+    bedroom_lights:
+      friendly_name: "Свет в спальне"
+      value_template: >-
+        {%
+          if is_state('switch.0x00158d0002f9b17b_switch_left', 'off') and
+          is_state('switch.0x00158d0002f9b17b_switch_right', 'off')
+        -%}
+          off
+        {%- else -%}
+          on
+        {%- endif %}
