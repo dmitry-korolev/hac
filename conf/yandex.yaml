@@ -25,3 +25,7 @@ yandex_smart_home:
     media_player.lg_webos_smart_tv:
       name: Телевизор
       type: devices.types.media_device.tv
+      
+yandex_station:
+  username: !secret yandex_login
+  password: !secret yandex_password
