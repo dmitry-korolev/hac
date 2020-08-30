@@ -1,0 +1,27 @@
+yandex_smart_home:
+  filter:
+    include_entities:
+      - switch.0x00158d0002f9b20a_switch_left # санузел—свет
+      - switch.0x00158d0002f9b20a_switch_right # санузел—вентиляция
+      - switch.0x00158d0003455ca6_switch # балкон-выключатель
+      - switch.0x00158d0002c5ff27_switch # гардероб(д)-выключатель
+      - switch.0x00158d0002c57b8d_switch # гардероб-выключатель
+      - switch.0x00158d0002c5e4a2_switch # Выключатель в кабинете
+      - switch.0x00158d0002f9cb46_switch_right # коридор—выключатель
+      - switch.0x00158d0002f93e70_switch_left # гостиная—выключатель
+      - switch.0x00158d0002f9b743_switch_left # кухня-группа в проходе
+      - switch.0x00158d0002f9b743_switch_right # кухня-группа у окна
+      - switch.0x00158d0002c5db53_switch # кухня-люстра
+      - switch.0x00158d0002f9b1e5_switch_left  # санузел-д—свет
+      - switch.0x00158d0002f9b1e5_switch_right # санузел—д-вентиляция
+      - switch.0x00158d0002f9b17b_switch_left # спальня-основной свет
+      - switch.0x00158d0002f9b17b_switch_right # спальня-группа у окна
+      - input_boolean.night_mode
+      - media_player.lg_webos_smart_tv
+  entity_config:
+    input_boolean.night_mode:
+      name: Ночной режим
+      type: devices.types.switch
+    media_player.lg_webos_smart_tv:
+      name: Телевизор
+      type: devices.types.media_device.tv
