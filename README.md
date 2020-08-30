@@ -15,6 +15,7 @@
 | Tuya Temperature & humidity sensor TS0201      | Sensor        | 3     | Zigbee    |         |
 | Yandex.Station                                 | Smart Speaker | 1     | WiFi      |         |
 | LG 55UM7450                                    | TV            | 1     | WiFi      |         |
+| PS4.                                           | Home Console  | 1     | WiFi      |         |
 
 ## Automations
 
