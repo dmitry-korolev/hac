@@ -1,0 +1,6 @@
+webostv:
+  host: 192.168.1.8
+  turn_on_action:
+    service: wake_on_lan.send_magic_packet
+    data:
+      mac: 44-CB-8B-1B-FA-EA

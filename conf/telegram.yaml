@@ -1,0 +1,17 @@
+telegram_bot:
+  - platform: polling
+    api_key: !secret token_telegram
+    allowed_chat_ids:
+      - !secret id_dima
+      - !secret id_nastya
+
+notify:
+  - name: NOTIFY_DIMA
+    platform: telegram
+    chat_id: !secret id_dima
+  - name: NOTIFY_NASTYA
+    platform: telegram
+    chat_id: !secret id_nastya
+  - name: NOTIFY_ALL
+    platform: telegram
+    chat_id: !secret id_nastya
