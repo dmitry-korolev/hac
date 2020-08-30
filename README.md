@@ -16,6 +16,8 @@
 | Yandex.Station                                 | Smart Speaker | 1     | WiFi      |         |
 | LG 55UM7450                                    | TV            | 1     | WiFi      |         |
 | PS4                                            | Home Console  | 1     | WiFi      |         |
+| Yeelight Lightstrip 2                          | Light         | 1     | WiFi      |         |
+| Yeelight Ceiling Lamp 650                      | Light         | 1     | WiFi      |         |
 
 ## Automations
 
