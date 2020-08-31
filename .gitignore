@@ -5,7 +5,7 @@
 .cloud
 .google.token
 custom_components
-node-red
+node-red/
 themes
 tts
 www/community
@@ -19,4 +19,9 @@ known_devices.yaml
 *.log
 *.db
 webostv.conf
-.yandex_station.txt
+.yandex_station.json
+.shopping_list.json
+
+# Allow node-red flows
+!/node-red/flows.json
+!/node-red/flows_cred.json

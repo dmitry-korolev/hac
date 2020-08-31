@@ -27,3 +27,16 @@ sensor:
           {%- else -%}
             off
           {%- endif %}
+          
+group:
+  kitchen:
+    name: Кухня
+    entities:
+      - switch.0x00158d0002f9b743_switch_left
+      - switch.0x00158d0002f9b743_switch_right
+      - switch.0x00158d0002c5db53_switch
+  living_room:
+    name: Спальня
+    entities:
+      - switch.0x00158d0002f9b17b_switch_left
+      - switch.0x00158d0002f9b17b_switch_right

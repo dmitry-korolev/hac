@@ -1,0 +1,106 @@
+resources:
+  - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
+    type: module
+
+views:
+  - title: Home
+    badges: []
+    icon: 'mdi:home'
+    path: home
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: weather-forecast
+            entity: weather.home
+            show_forecast: true
+        
+          - title: Освещение
+            type: entities
+            entities:
+              - entity: switch.0x00158d0002f9cb46_switch_right
+                icon: 'mdi:wall-sconce-flat'
+                name: Коридор
+              - entity: switch.0x00158d0002f93e70_switch_left
+                icon: 'mdi:ceiling-light'
+                name: Гостиная
+              - entity: switch.0x00158d0002c5e4a2_switch
+                icon: 'mdi:ceiling-light'
+                name: Кабинет
+              - entity: light.liustra_v_detskoi
+                icon: 'mdi:dome-light'
+                name: Детская
+              - entity: group.kitchen
+                icon: 'mdi:lightbulb'
+                name: Кухня
+              - entity: group.living_room
+                icon: 'mdi:lightbulb'
+                name: Спальня
+            
+      - type: vertical-stack
+        cards:
+          - type: glance
+            entities:
+              - entity: binary_sensor.0x00158d00039ca2f8_contact
+                name: Входная дверь
+              - entity: binary_sensor.0x00158d000231ced3_contact
+                name: Холодильник
+              - entity: binary_sensor.0x00158d00044d9900_contact
+                name: Балкон
+                
+          - type: glance
+            entities:
+              - entity: binary_sensor.0x00158d0002456c78_occupancy
+                name: Коридор
+              - entity: binary_sensor.0x00158d0004466dfa_occupancy
+                name: Кухня
+              - entity: binary_sensor.0x00158d0004466e9d_occupancy
+                name: Балкон
+        
+          - type: media-control
+            entity: media_player.yandex_station_14007894c1205c100650
+            
+          - type: media-control
+            entity: media_player.lg_webos_smart_tv
+        
+      - type: vertical-stack
+        cards:
+          - type: glance
+            entities:
+              - entity: sensor.papas_location
+                name: Папа
+
+          - type: custom:mini-graph-card
+            entities:
+              - entity: sensor.time_to_work
+                name: Время до работы
+            icon: mdi:car
+            name: Время до работы
+            unit: мин
+            color_thresholds:
+              - value: 15
+                color: "#00ff00"
+              - value: 25
+                color: "#ffff00"
+              - value: 35
+                color: "#ff0000"
+            hour24: true
+            font_size: 150
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
