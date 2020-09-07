@@ -29,10 +29,10 @@ views:
               - entity: light.liustra_v_detskoi
                 icon: 'mdi:dome-light'
                 name: Детская
-              - entity: group.kitchen
+              - entity: group.kitchen_lights
                 icon: 'mdi:lightbulb'
                 name: Кухня
-              - entity: group.living_room
+              - entity: group.bedroom_lights
                 icon: 'mdi:lightbulb'
                 name: Спальня
             
@@ -68,6 +68,8 @@ views:
             entities:
               - entity: sensor.papas_location
                 name: Папа
+              - entity: sensor.mamas_location
+                name: Мама
 
           - type: custom:mini-graph-card
             entities:
@@ -85,6 +87,42 @@ views:
                 color: "#ff0000"
             hour24: true
             font_size: 150
+            
+      - type: horizontal-stack
+        cards:
+          - type: entity-button
+            tap_action:
+              action: toggle
+              confirmation: true
+            show_icon: true
+            show_name: true
+            entity: input_boolean.night_mode
+            
+          - type: entity-button
+            tap_action:
+              action: toggle
+              confirmation: true
+            show_icon: true
+            show_name: true
+            entity: input_boolean.away_mode
+            
+          - type: entity-button
+            tap_action:
+              action: toggle
+              confirmation: true
+            show_icon: true
+            show_name: true
+            entity: input_boolean.vacation_mode
+            
+          - type: entity-button
+            tap_action:
+              action: toggle
+              confirmation: true
+            show_icon: true
+            show_name: true
+            entity: input_boolean.guest_mode
+
+
 
 
 

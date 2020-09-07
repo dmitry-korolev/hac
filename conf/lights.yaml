@@ -1,42 +1,20 @@
-sensor:
-  - platform: template
-    sensors:
-      primary_lights:
-        friendly_name: "Основной свет"
-        value_template: >-
-          {%
-            if is_state('switch.0x00158d0002c5db53_switch', 'on') or
-            is_state('switch.0x00158d0002f9b743_switch_left', 'on') or
-            is_state('switch.0x00158d0002f9b743_switch_right', 'on') or
-            is_state('switch.0x00158d0002f93e70_switch_left', 'on') or
-            is_state('switch.0x00158d0002f9cb46_switch_right', 'on')
-          -%}
-            on
-          {%- else -%}
-            off
-          {%- endif %}
-          
-      bedroom_lights:
-        friendly_name: "Свет в спальне"
-        value_template: >-
-          {%
-            if is_state('switch.0x00158d0002f9b17b_switch_left', 'on') or
-            is_state('switch.0x00158d0002f9b17b_switch_right', 'on')
-          -%}
-            on
-          {%- else -%}
-            off
-          {%- endif %}
-          
 group:
-  kitchen:
-    name: Кухня
+  primary_lights:
+    name: Основной свет
+    entities:
+      - switch.0x00158d0002c5db53_switch
+      - switch.0x00158d0002f9b743_switch_left
+      - switch.0x00158d0002f9b743_switch_right
+      - switch.0x00158d0002f93e70_switch_left
+      - switch.0x00158d0002f9cb46_switch_right
+  kitchen_lights:
+    name: Свет на кухне
     entities:
       - switch.0x00158d0002f9b743_switch_left
       - switch.0x00158d0002f9b743_switch_right
       - switch.0x00158d0002c5db53_switch
-  living_room:
-    name: Спальня
+  bedroom_lights:
+    name: Свет в спальне
     entities:
       - switch.0x00158d0002f9b17b_switch_left
       - switch.0x00158d0002f9b17b_switch_right

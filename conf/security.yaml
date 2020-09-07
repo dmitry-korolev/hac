@@ -1,0 +1,47 @@
+input_boolean:
+  away_mode:
+    name: Никого нет дома
+    icon: mdi:weather-night
+    
+  vacation_mode:
+    name: Продолжительное отсутствие
+    icon: mdi:palm-tree
+    
+  guest_mode:
+    name: Гостевой режим
+    icon: mdi:human-male-female
+
+group:
+  persons:
+    name: People
+    entities:
+      - person.dima
+      - person.nastya
+    
+sensor:
+  - platform: template
+    sensors:
+      auto_away_home:
+        value_template: >-          
+          {% if is_state('device_tracker.mi_mix_3', 'home')
+            or is_state('device_tracker.iphone_anastasiia', 'home') %}
+            on
+          {% else %}
+            off
+          {% endif %}
+        icon_template: >-
+          {% if is_state('device_tracker.mi_mix_3', 'home')
+            or is_state('device_tracker.iphone_anastasiia', 'home') %}
+            mdi:home
+          {% else %}
+            mdi:help
+          {% endif %}
+
+
+
+
+
+
+
+
+

@@ -12,6 +12,3 @@ notify:
   - name: NOTIFY_NASTYA
     platform: telegram
     chat_id: !secret id_nastya
-  - name: NOTIFY_ALL
-    platform: telegram
-    chat_id: !secret id_nastya
