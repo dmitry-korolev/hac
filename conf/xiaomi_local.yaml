@@ -10,3 +10,8 @@ yeelight:
       transition: 1000
       model: strip1
       nightlight_switch_type: light
+      
+vacuum:
+  - platform: xiaomi_miio
+    host: 192.168.1.3
+    token: 61326a715a346c79746539577a517934

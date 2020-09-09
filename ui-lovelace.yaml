@@ -71,22 +71,14 @@ views:
               - entity: sensor.mamas_location
                 name: Мама
 
-          - type: custom:mini-graph-card
-            entities:
-              - entity: sensor.time_to_work
-                name: Время до работы
-            icon: mdi:car
+          - type: sensor
+            entity: sensor.time_to_work
             name: Время до работы
+            icon: mdi:car
+            graph: line
+            detail: 1
             unit: мин
-            color_thresholds:
-              - value: 15
-                color: "#00ff00"
-              - value: 25
-                color: "#ffff00"
-              - value: 35
-                color: "#ff0000"
-            hour24: true
-            font_size: 150
+            hours_to_show: 12
             
       - type: horizontal-stack
         cards:
