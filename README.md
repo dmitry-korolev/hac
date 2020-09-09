@@ -1,5 +1,7 @@
 # Home Assistant configuration
 
+## Most useful automations
+
 ## Devices
 
 | Device                                         | Type          | Units | Interface | Comment |
@@ -13,6 +15,7 @@
 | Mi door & window contact sensor MCCGQ01LM      | Sensor        | 5     | Zigbee    |         |
 | Aqara smart home cube MFKZQ01LM                | Sensor        | 2     | Zigbee    |         |
 | Tuya Temperature & humidity sensor TS0201      | Sensor        | 3     | Zigbee    |         |
+| Xiaomi Roborock S1                             | Robot Vacuum  | 1     | WiFi      |         |
 | Yandex.Station                                 | Smart Speaker | 1     | WiFi      |         |
 | LG 55UM7450                                    | TV            | 1     | WiFi      |         |
 | PS4                                            | Home Console  | 1     | WiFi      |         |
@@ -22,6 +25,7 @@
 ## Automations
 
 ## Useful links
+
 * https://community.home-assistant.io/t/wallpanel-for-android-formerly-homedash/16217
 * https://community.home-assistant.io/t/hadashboard-tablet-hardware-options/13355
 * https://ivan.bessarabov.ru/blog/moes-smart-thermostat-custom-firmare-and-home-assistant
