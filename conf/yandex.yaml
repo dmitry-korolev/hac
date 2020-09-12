@@ -21,6 +21,7 @@ yandex_smart_home:
       - input_boolean.night_mode
       - vacuum.xiaomi_vacuum_cleaner
       - media_player.lg_webos_smart_tv
+      - media_player.yandex_intents
   entity_config:
     input_boolean.night_mode:
       name: Ночной режим
@@ -32,3 +33,6 @@ yandex_smart_home:
 yandex_station:
   username: !secret yandex_login
   password: !secret yandex_password
+  intents:
+    Пропылесось на кухне: .
+    Пропылесось в гостиной: .
