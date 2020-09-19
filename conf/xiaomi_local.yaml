@@ -1,15 +1,15 @@
-yeelight:
-  devices:
-    192.168.1.21:
-      name: Люстра в детской
-      transition: 0
-      model: ceiling4
+# yeelight:
+#   devices:
+#     192.168.1.21:
+#       name: Люстра в детской
+#       transition: 0
+#       model: ceiling4
   
-    192.168.1.22:
-      name: Верхняя подсветка
-      transition: 1000
-      model: strip1
-      nightlight_switch_type: light
+#     192.168.1.22:
+#       name: Верхняя подсветка
+#       transition: 1000
+#       model: strip1
+#       nightlight_switch_type: light
       
 vacuum:
   - platform: xiaomi_miio

@@ -25,8 +25,13 @@
 ## Automations
 
 ## Useful links
-
+Железки для wallmount
 * https://community.home-assistant.io/t/wallpanel-for-android-formerly-homedash/16217
 * https://community.home-assistant.io/t/hadashboard-tablet-hardware-options/13355
+
+Про термостат
 * https://ivan.bessarabov.ru/blog/moes-smart-thermostat-custom-firmare-and-home-assistant
+* https://www.inhomekit.ru/2020/05/15/lutchshiy-termostat-dlya-teplogo-pola/
+
+Всякие карточки
 * https://home-assistant-cards.bessarabov.com/

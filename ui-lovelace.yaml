@@ -1,6 +1,10 @@
 resources:
   - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
     type: module
+  - url: /hacsfiles/custom-header/custom-header.js
+    type: module
+  - url: /hacsfiles/ha-yandex-icons/yandex-icons.js
+    type: module  
 
 views:
   - title: Home
@@ -58,9 +62,15 @@ views:
         
           - type: media-control
             entity: media_player.yandex_station_14007894c1205c100650
+            name: Большая станция
+            
+          - type: media-control
+            entity: media_player.yandex_station_ff98f02994bc6f9118497cb1
+            name: Мини в детской
             
           - type: media-control
             entity: media_player.lg_webos_smart_tv
+
         
       - type: vertical-stack
         cards:
