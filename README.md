@@ -4,7 +4,7 @@
 Disclaimer: I am using Node-red for almost every automation at my house.
 ### Motion lights
 I am using lights automations widely. At some point I came up with a pretty nice solution:
-
+![subflow](https://github.com/dmitry-korolev/hac/blob/master/screenshots/flow-motion-lights.png)
 This is a node-red subflow with four properties: 
 1. switch_id
 1. sensor_id
