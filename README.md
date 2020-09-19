@@ -1,6 +1,18 @@
 # Home Assistant configuration
 
 ## Most useful automations
+Disclaimer: I am using Node-red for almost every automation at my house.
+### Motion lights
+I am using lights automations widely. At some point I came up with a pretty nice solution:
+
+This is a node-red subflow with four properties: 
+1. switch_id
+1. sensor_id
+1. timeour — timeout in minutes
+1. condition_template — optional property. If set, will be checked before turning the switch on.
+
+[See the code](https://flows.nodered.org/flow/22b6e96a2da78da87eda037b1a4f758c).
+
 
 ## Devices
 
