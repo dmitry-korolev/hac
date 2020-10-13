@@ -1,21 +1,37 @@
 yandex_smart_home:
   filter:
     include_entities:
-      - switch.0x00158d0002f9b20a_switch_left # санузел—свет
-      - switch.0x00158d0002f9b20a_switch_right # санузел—вентиляция
-      - switch.0x00158d0003455ca6_switch # балкон-выключатель
-      - switch.0x00158d0002c5ff27_switch # гардероб(д)-выключатель
-      - switch.0x00158d0002c57b8d_switch # гардероб-выключатель
-      - switch.0x00158d0002c5e4a2_switch # Выключатель в кабинете
-      - switch.0x00158d0002f9cb46_switch_right # коридор—выключатель
-      - switch.0x00158d0002f93e70_switch_left # гостиная—выключатель
-      - switch.0x00158d0002f9b743_switch_left # кухня-группа в проходе
-      - switch.0x00158d0002f9b743_switch_right # кухня-группа у окна
-      - switch.0x00158d0002c5db53_switch # кухня-люстра
-      - switch.0x00158d0002f9b1e5_switch_left  # санузел-д—свет
-      - switch.0x00158d0002f9b1e5_switch_right # санузел—д-вентиляция
-      - switch.0x00158d0002f9b17b_switch_left # спальня-основной свет
-      - switch.0x00158d0002f9b17b_switch_right # спальня-группа у окна
+      # - switch.0x00158d0002f9b20a_switch_left # санузел—свет
+      # - switch.0x00158d0002f9b20a_switch_right # санузел—вентиляция
+      # - switch.0x00158d0003455ca6_switch # балкон-выключатель
+      # - switch.0x00158d0002c5ff27_switch # гардероб(д)-выключатель
+      # - switch.0x00158d0002c57b8d_switch # гардероб-выключатель
+      # - switch.0x00158d0002c5e4a2_switch # Выключатель в кабинете
+      # - switch.0x00158d0002f9cb46_switch_right # коридор—выключатель
+      # - switch.0x00158d0002f93e70_switch_left # гостиная—выключатель
+      # - switch.0x00158d0002f9b743_switch_left # кухня-группа в проходе
+      # - switch.0x00158d0002f9b743_switch_right # кухня-группа у окна
+      # - switch.0x00158d0002c5db53_switch # кухня-люстра
+      # - switch.0x00158d0002f9b1e5_switch_left  # санузел-д—свет
+      # - switch.0x00158d0002f9b1e5_switch_right # санузел—д-вентиляция
+      # - switch.0x00158d0002f9b17b_switch_left # спальня-основной свет
+      # - switch.0x00158d0002f9b17b_switch_right # спальня-группа у окна
+      
+      - switch.wall_switch_ln_left_158d0002f9b20a # санузел—свет
+      - switch.wall_switch_ln_right_158d0002f9b20a # санузел—вентиляция
+      - switch.wall_switch_ln_158d0003455ca6 # балкон-выключатель
+      - switch.wall_switch_ln_158d0002c5ff27 # гардероб(д)-выключатель
+      - switch.wall_switch_ln_158d0002c57b8d # гардероб-выключатель
+      - switch.wall_switch_ln_158d0002c5e4a2 # Выключатель в кабинете
+      - switch.wall_switch_ln_right_158d0002f9cb46 # коридор—выключатель
+      - switch.wall_switch_ln_left_158d0002f93e70 # гостиная—выключатель
+      - switch.wall_switch_ln_left_158d0002f9b743 # кухня-группа в проходе
+      - switch.wall_switch_ln_right_158d0002f9b743 # кухня-группа у окна
+      - switch.wall_switch_ln_158d0002c5db53 # кухня-люстра
+      - switch.wall_switch_ln_left_158d0002f9b1e5  # санузел-д—свет
+      - switch.wall_switch_ln_right_158d0002f9b1e5 # санузел—д-вентиляция
+      - switch.wall_switch_ln_left_158d0002f9b17b_2 # спальня-основной свет
+      - switch.wall_switch_ln_right_158d0002f9b17b_2 # спальня-группа у окна
       - light.liustra_v_detskoi
       - light.verkhniaia_podsvetka
       - input_boolean.night_mode
@@ -23,12 +39,93 @@ yandex_smart_home:
       - media_player.lg_webos_smart_tv
       - media_player.yandex_intents
   entity_config:
+    switch.wall_switch_ln_left_158d0002f9b20a: 
+      name: Освещение
+      room: Санузел
+      type: devices.types.light
+
+    switch.wall_switch_ln_right_158d0002f9b20a:
+      name: Вентиляция
+      room: Санузел
+    
+    switch.wall_switch_ln_158d0003455ca6: 
+      name: Освещение
+      room: Балкон
+      type: devices.types.light
+
+    switch.wall_switch_ln_158d0002c5ff27: 
+      name: Освещение
+      room: Детская гардеробная
+      type: devices.types.light
+
+    switch.wall_switch_ln_158d0002c57b8d:
+      name: Освещение
+      room: Гардеробная
+      type: devices.types.light
+
+    switch.wall_switch_ln_158d0002c5e4a2:
+      name: Люстра
+      room: Кабинет
+      type: devices.types.light
+
+    switch.wall_switch_ln_right_158d0002f9cb46:
+      name: Освещение
+      room: Коридор
+      type: devices.types.light
+
+    switch.wall_switch_ln_left_158d0002f93e70:
+      name: Люстра
+      room: Гостиная
+      type: devices.types.light
+
+    switch.wall_switch_ln_left_158d0002f9b743:
+      name: Свет в проходе
+      room: Кухня
+      type: devices.types.light
+
+    switch.wall_switch_ln_right_158d0002f9b743:
+      name: Свет у окна
+      room: Кухня
+      type: devices.types.light
+
+    switch.wall_switch_ln_158d0002c5db53:
+      name: Люстра
+      room: Кухня
+      type: devices.types.light
+
+    switch.wall_switch_ln_left_158d0002f9b1e5:
+      name: Освещение
+      room: Гостевой санузел
+      type: devices.types.light
+
+    switch.wall_switch_ln_right_158d0002f9b1e5:
+      name: Вентиляция
+      room: Гостевой санузел
+
+    switch.wall_switch_ln_left_158d0002f9b17b_2:
+      name: Люстра
+      room: Спальня
+      type: devices.types.light
+
+    switch.wall_switch_ln_right_158d0002f9b17b_2:
+      name: Свет у окна
+      room: Спальня
+      type: devices.types.light
+
+    light.liustra_v_detskoi:
+      name: Люстра
+      room: Детская
+      type: devices.types.light
+
     input_boolean.night_mode:
       name: Ночной режим
       type: devices.types.switch
+      room: Все
+
     media_player.lg_webos_smart_tv:
       name: Телевизор
       type: devices.types.media_device.tv
+      room: Гостиная
       
 yandex_station:
   username: !secret yandex_login
@@ -36,3 +133,20 @@ yandex_station:
   intents:
     Пропылесось на кухне: .
     Пропылесось в гостиной: .
+
+yandex_dialogs:
+  name: Дом
+  allowed_user_ids:
+  - 4449DE5B0795BDB6A52F09150E9B3A354B945F16E9CC044B720A2BA9BE5CCD60
+
+
+# automation:
+# - trigger:
+#     platform: event
+#     event_type: yandex_intent  # это событие ОТ вашего навыка
+#     event_data:
+#       text: привет  # проверяем точное совпадение с фразой "привет"
+#   action:
+#     event: yandex_intent_response  # это наш ответ навыку, нужно уложиться в пару секунд
+#     event_data_template:
+#       text: "{{ ['слушаю', 'здесь я', 'на связи']|random }}"

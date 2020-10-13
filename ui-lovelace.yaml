@@ -21,13 +21,13 @@ views:
           - title: Освещение
             type: entities
             entities:
-              - entity: switch.0x00158d0002f9cb46_switch_right
+              - entity: switch.wall_switch_ln_right_158d0002f9cb46
                 icon: 'mdi:wall-sconce-flat'
                 name: Коридор
-              - entity: switch.0x00158d0002f93e70_switch_left
+              - entity: switch.wall_switch_ln_left_158d0002f93e70
                 icon: 'mdi:ceiling-light'
                 name: Гостиная
-              - entity: switch.0x00158d0002c5e4a2_switch
+              - entity: switch.wall_switch_ln_158d0002c5e4a2
                 icon: 'mdi:ceiling-light'
                 name: Кабинет
               - entity: light.liustra_v_detskoi
@@ -44,20 +44,20 @@ views:
         cards:
           - type: glance
             entities:
-              - entity: binary_sensor.0x00158d00039ca2f8_contact
+              - entity: binary_sensor.door_window_sensor_158d00039ca2f8
                 name: Входная дверь
-              - entity: binary_sensor.0x00158d000231ced3_contact
+              - entity: binary_sensor.door_window_sensor_158d000231ced3
                 name: Холодильник
-              - entity: binary_sensor.0x00158d00044d9900_contact
+              - entity: binary_sensor.door_window_sensor_158d00044d9900
                 name: Балкон
                 
           - type: glance
             entities:
-              - entity: binary_sensor.0x00158d0002456c78_occupancy
+              - entity: binary_sensor.motion_sensor_158d0002456c78
                 name: Коридор
-              - entity: binary_sensor.0x00158d0004466dfa_occupancy
+              - entity: binary_sensor.motion_sensor_158d0004466dfa
                 name: Кухня
-              - entity: binary_sensor.0x00158d0004466e9d_occupancy
+              - entity: binary_sensor.motion_sensor_158d0004466e9d
                 name: Балкон
         
           - type: media-control
