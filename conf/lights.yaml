@@ -18,3 +18,17 @@ group:
     entities:
       - switch.wall_switch_ln_left_158d0002f9b17b_2
       - switch.wall_switch_ln_right_158d0002f9b17b_2
+  kidsroom_lights:
+    name: Свет в детской
+    entities:
+      - light.liustra_v_detskoi
+      - light.liustra_v_detskoi_ambilight
+      - light.liustra_v_detskoi_nightlight
+  other_lights:
+    name: Свет в нежилых помещениях
+    entities:
+      - switch.wall_switch_ln_158d0003455ca6
+      - switch.wall_switch_ln_158d0002c57b8d
+      - switch.wall_switch_ln_158d0002c5ff27
+      - switch.wall_switch_ln_left_158d0002f9b20a
+      - switch.wall_switch_ln_left_158d0002f9b1e5

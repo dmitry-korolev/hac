@@ -1,8 +1,4 @@
 input_boolean:
-  away_mode:
-    name: Никого нет дома
-    icon: mdi:weather-night
-    
   vacation_mode:
     name: Продолжительное отсутствие
     icon: mdi:palm-tree

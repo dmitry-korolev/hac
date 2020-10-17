@@ -1,0 +1,18 @@
+title: Control Panel — Media
+path: ipad-media
+visible:
+  - user: 39ddd0303ac8416dbe60c3ea44cc48eb
+icon: mdi:play-network
+cards:
+  - type: vertical-stack
+    cards:
+      - type: media-control
+        entity: media_player.yandex_station_14007894c1205c100650
+        name: Большая станция
+        
+      - type: media-control
+        entity: media_player.yandex_station_ff98f02994bc6f9118497cb1
+        name: Мини в детской
+        
+      - type: media-control
+        entity: media_player.lg_webos_smart_tv

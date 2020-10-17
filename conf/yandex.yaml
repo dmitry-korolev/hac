@@ -33,6 +33,8 @@ yandex_smart_home:
       - switch.wall_switch_ln_left_158d0002f9b17b_2 # спальня-основной свет
       - switch.wall_switch_ln_right_158d0002f9b17b_2 # спальня-группа у окна
       - light.liustra_v_detskoi
+      - light.liustra_v_detskoi_ambilight
+      - light.liustra_v_detskoi_nightlight
       - light.verkhniaia_podsvetka
       - input_boolean.night_mode
       - vacuum.xiaomi_vacuum_cleaner
@@ -116,6 +118,16 @@ yandex_smart_home:
       name: Люстра
       room: Детская
       type: devices.types.light
+      
+    light.liustra_v_detskoi_ambilight:
+      name: Подсветка
+      room: Детская
+      type: devices.types.light
+      
+    light.liustra_v_detskoi_nightlight:
+      name: Ночник
+      room: Детская
+      type: devices.types.light
 
     input_boolean.night_mode:
       name: Ночной режим
@@ -133,6 +145,7 @@ yandex_station:
   intents:
     Пропылесось на кухне: .
     Пропылесось в гостиной: .
+    У нас посторонние: .
 
 yandex_dialogs:
   name: Дом

@@ -14,6 +14,16 @@ sensor:
       - jamsRate
       - jamsMeasure
       
+  - platform: rest
+    resource_template: !secret time_to_parents
+    name: Time to parents
+    scan_interval: 180
+    value_template: '{{ value_json.direct.time }}'
+    unit_of_measurement: "мин"
+    json_attributes:
+      - jamsRate
+      - jamsMeasure
+
   - platform: template
     sensors: 
       papas_location:

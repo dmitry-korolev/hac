@@ -1,0 +1,120 @@
+title: Home
+visible:
+ - user: 58ac246fe2c14ed5ae4da0f8d8601b14
+ - user: 088bed1a5f844e33bedab814202af9a6
+badges: []
+icon: 'mdi:home'
+path: home
+cards:
+  - type: vertical-stack
+    cards:
+      - title: Освещение
+        type: entities
+        state_color: true
+        entities:
+          - entity: switch.wall_switch_ln_right_158d0002f9cb46
+            icon: 'mdi:door-closed'
+            name: Коридор
+          - entity: switch.wall_switch_ln_left_158d0002f93e70
+            icon: 'mdi:sofa'
+            name: Гостиная
+          - entity: switch.wall_switch_ln_158d0002c5e4a2
+            icon: 'mdi:chair-rolling'
+            name: Кабинет
+          - entity: group.kidsroom_lights
+            icon: 'mdi:toy-brick'
+            name: Детская
+          - entity: group.kitchen_lights
+            icon: 'mdi:silverware-fork-knife'
+            name: Кухня
+          - entity: group.bedroom_lights
+            icon: 'mdi:bed'
+            name: Спальня
+          - entity: group.other_lights
+            icon: 'mdi:shower'
+            name: Нежилые помещения
+     
+      - type: horizontal-stack
+        cards:
+          - type: entity-button
+            tap_action:
+              action: toggle
+              confirmation: true
+            show_icon: true
+            show_name: true
+            entity: input_boolean.night_mode
+            
+          - type: entity-button
+            tap_action:
+              action: toggle
+              confirmation: true
+            show_icon: true
+            show_name: true
+            entity: input_boolean.vacation_mode
+            
+          - type: entity-button
+            tap_action:
+              action: toggle
+              confirmation: true
+            show_icon: true
+            show_name: true
+            entity: input_boolean.guest_mode
+
+  - type: vertical-stack
+    cards:
+      - type: custom:xiaomi-vacuum-card
+        entity: vacuum.xiaomi_vacuum_cleaner
+        buttons:
+          start:
+            label: 'Начать'
+          return:
+            label: 'Вернуться на базу'
+          pause: false
+          locate: false
+          stop: false
+          kidsroom:
+            icon: mdi:toy-brick
+            label: Детская
+            service: xiaomi_miio.vacuum_clean_segment
+            service_data:
+              entity_id: vacuum.xiaomi_vacuum_cleaner
+              segments: [18]
+          cabinet:
+            icon: mdi:chair-rolling
+            label: Кабинет
+            service: xiaomi_miio.vacuum_clean_segment
+            service_data:
+              entity_id: vacuum.xiaomi_vacuum_cleaner
+              segments: [21]
+          bedroom:
+            icon: mdi:bed
+            label: Спальня
+            service: xiaomi_miio.vacuum_clean_segment
+            service_data:
+              entity_id: vacuum.xiaomi_vacuum_cleaner
+              segments: [24]
+          kitchen:
+            icon: mdi:silverware-fork-knife
+            label: Кухня
+            service: xiaomi_miio.vacuum_clean_segment
+            service_data:
+              entity_id: vacuum.xiaomi_vacuum_cleaner
+              segments: [23]
+          guestroom:
+            icon: mdi:sofa
+            label: Гостиная
+            service: xiaomi_miio.vacuum_clean_segment
+            service_data:
+              entity_id: vacuum.xiaomi_vacuum_cleaner
+              segments: [22]
+            
+      - type: media-control
+        entity: media_player.yandex_station_14007894c1205c100650
+        name: Большая станция
+        
+      - type: media-control
+        entity: media_player.yandex_station_ff98f02994bc6f9118497cb1
+        name: Мини в детской
+        
+      - type: media-control
+        entity: media_player.lg_webos_smart_tv

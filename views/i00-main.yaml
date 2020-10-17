@@ -1,0 +1,59 @@
+title: Control Panel
+path: ipad-main
+visible:
+  - user: 39ddd0303ac8416dbe60c3ea44cc48eb
+icon: mdi:tablet-ipad
+cards:
+  - type: vertical-stack
+    cards:
+      - type: weather-forecast
+        entity: weather.home
+        show_forecast: true
+        
+      - title: Освещение
+        type: entities
+        entities:
+          - entity: switch.wall_switch_ln_right_158d0002f9cb46
+            icon: 'mdi:wall-sconce-flat'
+            name: Коридор
+          - entity: switch.wall_switch_ln_left_158d0002f93e70
+            icon: 'mdi:ceiling-light'
+            name: Гостиная
+          - entity: switch.wall_switch_ln_158d0002c5e4a2
+            icon: 'mdi:ceiling-light'
+            name: Кабинет
+          - entity: group.kidsroom_lights
+            icon: 'mdi:dome-light'
+            name: Детская
+          - entity: group.kitchen_lights
+            icon: 'mdi:lightbulb'
+            name: Кухня
+          - entity: group.bedroom_lights
+            icon: 'mdi:lightbulb'
+            name: Спальня
+
+  - type: vertical-stack
+    cards:
+      - type: alarm-panel
+        entity: alarm_control_panel.alarm
+        name: Охрана
+
+      - type: horizontal-stack
+        cards:
+          - type: sensor
+            entity: sensor.time_to_work
+            name: Время до работы
+            icon: mdi:car
+            graph: line
+            detail: 1
+            unit: мин
+            hours_to_show: 12
+            
+          - type: sensor
+            entity: sensor.time_to_parents
+            name: Время до Алтуфьево
+            icon: mdi:car
+            graph: line
+            detail: 1
+            unit: мин
+            hours_to_show: 12

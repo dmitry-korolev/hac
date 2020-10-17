@@ -1,0 +1,40 @@
+title: Security
+visible:
+ - user: 58ac246fe2c14ed5ae4da0f8d8601b14
+ - user: 088bed1a5f844e33bedab814202af9a6
+badges: []
+icon: 'mdi:security'
+path: security
+cards:
+  - type: vertical-stack
+    cards:
+      - type: alarm-panel
+        entity: alarm_control_panel.alarm
+
+  - type: vertical-stack
+    cards:
+      - type: glance
+        entities:
+          - entity: sensor.papas_location
+            name: Папа
+          - entity: sensor.mamas_location
+            name: Мама
+
+      - type: glance
+        entities:
+          - entity: binary_sensor.door_window_sensor_158d00039ca2f8
+            name: Входная дверь
+          - entity: binary_sensor.door_window_sensor_158d000231ced3
+            name: Холодильник
+          - entity: binary_sensor.door_window_sensor_158d00044d9900
+            name: Балкон
+            
+      - type: glance
+        entities:
+          - entity: binary_sensor.motion_sensor_158d0002456c78
+            name: Коридор
+          - entity: binary_sensor.motion_sensor_158d0004466dfa
+            name: Кухня
+          - entity: binary_sensor.motion_sensor_158d0004466e9d
+            name: Балкон
+    
