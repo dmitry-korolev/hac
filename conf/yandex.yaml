@@ -32,6 +32,9 @@ yandex_smart_home:
       - switch.wall_switch_ln_right_158d0002f9b1e5 # санузел—д-вентиляция
       - switch.wall_switch_ln_left_158d0002f9b17b_2 # спальня-основной свет
       - switch.wall_switch_ln_right_158d0002f9b17b_2 # спальня-группа у окна
+      - light.0x00158d00042a8a7d_light # настольная лампа в детской
+      - light.0x00158d0004249034_light # настольная лампа в кабинете
+      - light.0x00158d0004248f9c_light # настольная лампа Димы в спальне
       - light.liustra_v_detskoi
       - light.liustra_v_detskoi_ambilight
       - light.liustra_v_detskoi_nightlight
@@ -127,6 +130,21 @@ yandex_smart_home:
     light.liustra_v_detskoi_nightlight:
       name: Ночник
       room: Детская
+      type: devices.types.light
+      
+    light.0x00158d00042a8a7d_light:
+      name: Настольная лампа
+      room: Детская
+      type: devices.types.light
+      
+    light.0x00158d0004249034_light:
+      name: Настольная лампа
+      room: Кабинет
+      type: devices.types.light
+      
+    light.0x00158d0004248f9c_light:
+      name: Лампа Димы
+      room: Спальня
       type: devices.types.light
 
     input_boolean.night_mode:
