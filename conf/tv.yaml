@@ -1,7 +1,7 @@
 wake_on_lan:
 
 webostv:
-  host: 192.168.1.8
+  host: 192.168.0.46
   turn_on_action:
     service: wake_on_lan.send_magic_packet
     data:

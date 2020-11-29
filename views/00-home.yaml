@@ -18,7 +18,7 @@ cards:
           - entity: switch.wall_switch_ln_left_158d0002f93e70
             icon: 'mdi:sofa'
             name: Гостиная
-          - entity: switch.wall_switch_ln_158d0002c5e4a2
+          - entity: group.cabinet_lights
             icon: 'mdi:chair-rolling'
             name: Кабинет
           - entity: group.kidsroom_lights
@@ -30,6 +30,9 @@ cards:
           - entity: group.bedroom_lights
             icon: 'mdi:bed'
             name: Спальня
+          - entity: light.yeelight_stripe_0x0000000008081785
+            icon: 'mdi:brightness-4'
+            name: Подсветка
           - entity: group.other_lights
             icon: 'mdi:shower'
             name: Нежилые помещения
@@ -115,6 +118,10 @@ cards:
       - type: media-control
         entity: media_player.yandex_station_ff98f02994bc6f9118497cb1
         name: Мини в детской
-        
+
       - type: media-control
-        entity: media_player.lg_webos_smart_tv
+        entity: media_player.yandex_station_ff98f029499def9d4e5eb925
+        name: Мини в спальне
+
+      - type: media-control
+        entity: media_player.lg_webos_smart_tv_2

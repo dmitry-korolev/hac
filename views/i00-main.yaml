@@ -14,23 +14,26 @@ cards:
         type: entities
         entities:
           - entity: switch.wall_switch_ln_right_158d0002f9cb46
-            icon: 'mdi:wall-sconce-flat'
+            icon: 'mdi:door-closed'
             name: Коридор
           - entity: switch.wall_switch_ln_left_158d0002f93e70
-            icon: 'mdi:ceiling-light'
+            icon: 'mdi:sofa'
             name: Гостиная
-          - entity: switch.wall_switch_ln_158d0002c5e4a2
-            icon: 'mdi:ceiling-light'
+          - entity: group.cabinet_lights
+            icon: 'mdi:chair-rolling'
             name: Кабинет
           - entity: group.kidsroom_lights
-            icon: 'mdi:dome-light'
+            icon: 'mdi:toy-brick'
             name: Детская
           - entity: group.kitchen_lights
-            icon: 'mdi:lightbulb'
+            icon: 'mdi:silverware-fork-knife'
             name: Кухня
           - entity: group.bedroom_lights
-            icon: 'mdi:lightbulb'
+            icon: 'mdi:bed'
             name: Спальня
+          - entity: group.other_lights
+            icon: 'mdi:shower'
+            name: Нежилые помещения
 
   - type: vertical-stack
     cards:

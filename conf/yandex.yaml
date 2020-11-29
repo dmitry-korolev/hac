@@ -160,6 +160,17 @@ yandex_smart_home:
 yandex_station:
   username: !secret yandex_login
   password: !secret yandex_password
+  recognition_lang: ru-RU
+  devices:
+    ff98f029499def9d4e5eb925:
+      host: 192.168.0.80
+      name: Станция в спальне
+    ff98f02994bc6f9118497cb1:
+      host: 192.168.0.2
+      name: Станция в детской
+    14007894c1205c100650:
+      host: 192.168.0.43
+      name: Станция в спальне
   intents:
     Пропылесось на кухне: .
     Пропылесось в гостиной: .
@@ -169,6 +180,10 @@ yandex_dialogs:
   name: Дом
   allowed_user_ids:
   - 4449DE5B0795BDB6A52F09150E9B3A354B945F16E9CC044B720A2BA9BE5CCD60
+
+conversation:
+  intents:
+    media_player.yandex_station_ff98f029499def9d4e5eb925: [.+]  # замените на вашу станцию
 
 
 # automation:

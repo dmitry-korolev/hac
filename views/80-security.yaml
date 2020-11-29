@@ -37,4 +37,10 @@ cards:
             name: Кухня
           - entity: binary_sensor.motion_sensor_158d0004466e9d
             name: Балкон
-    
+
+  - type: vertical-stack
+    cards:
+      - type: picture-glance
+        title: Guestroom
+        entities: []
+        camera_image: camera.cameraguestroomsub

@@ -15,4 +15,4 @@ cards:
         name: Мини в детской
         
       - type: media-control
-        entity: media_player.lg_webos_smart_tv
+        entity: media_player.lg_webos_smart_tv_2

@@ -41,11 +41,11 @@ This is a node-red subflow with four properties:
 | IPad 4                                         | Tablet           | 1     | WiFi        | Used as a wallmount |
 | **Climate**                                    |                  |       |             |                     |
 | Moes BHT-002-GCLZB                             | Floor Thermostat | 4     | WiFi        |                     |
-| TuYa TS0601                                    | Room Thermostat  | 4     | Zigbee      |                     |
+| TuYa TS0601                                    | Room Thermostat  | 6     | Zigbee      |                     |
 | **Other**                                      |                  |       |             |                     |
 | Xiaomi Roborock S1                             | Robot Vacuum     | 1     | WiFi        |                     |
 | Zigbee V3 Coordinator                          | Zigbee Stick     | 1     | Zigbee      |                     |
-| Xiaomi Mi Gateway 2 DGNWG02LM                  | Gateway.         | 2     | WiFi/Zigbee |                     |
+| Xiaomi Mi Gateway 2 DGNWG02LM                  | Gateway          | 2     | WiFi/Zigbee |                     |
 
 ## Automations
 

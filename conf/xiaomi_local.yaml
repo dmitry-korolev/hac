@@ -13,5 +13,21 @@
       
 vacuum:
   - platform: xiaomi_miio
-    host: 192.168.1.5
+    host: 192.168.0.93
     token: 61326a715a346c79746539577a517934
+    
+    
+# Double switch hack
+input_boolean:
+  left_158d0002f93e70:
+  right_158d0002f93e70:
+  left_158d0002f9cb46:
+  right_158d0002f9cb46:
+  left_158d0002f9b743:
+  right_158d0002f9b743:
+  left_158d0002f9b20a:
+  right_158d0002f9b20a:
+  left_158d0002f9b1e5:
+  right_158d0002f9b1e5:
+  left_158d0002f9b17b_2:
+  right_158d0002f9b17b_2:

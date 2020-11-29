@@ -1,0 +1,10 @@
+camera:
+  - platform: generic
+    name: CameraGuestroomMain
+    still_image_url: !secret camera_1_still
+    stream_source: !secret camera_1_main
+
+  - platform: generic
+    name: CameraGuestroomSub
+    still_image_url: !secret camera_1_still
+    stream_source: !secret camera_1_sub
