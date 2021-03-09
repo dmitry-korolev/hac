@@ -1,8 +1,18 @@
 wake_on_lan:
 
 webostv:
-  host: 192.168.0.46
-  turn_on_action:
-    service: wake_on_lan.send_magic_packet
-    data:
-      mac: 44-CB-8B-1B-FA-EA
+  - host: 192.168.0.46
+    turn_on_action:
+      service: wake_on_lan.send_magic_packet
+      data:
+        mac: 44-CB-8B-1B-FA-EA
+
+media_player:
+  - platform: lg_netcast
+    host: 192.168.0.84
+    access_token: 697781
+    turn_on_action:
+      service: remote.send_command
+      data:
+        entity_id: remote.xiaomi_miio_192_168_0_10
+        command: toggle

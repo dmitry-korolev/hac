@@ -1,0 +1,4 @@
+input_boolean:
+  new_year_lights:
+    name: New Year lights
+    icon: mdi:pine-tree

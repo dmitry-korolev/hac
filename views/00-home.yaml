@@ -15,7 +15,7 @@ cards:
           - entity: switch.wall_switch_ln_right_158d0002f9cb46
             icon: 'mdi:door-closed'
             name: Коридор
-          - entity: switch.wall_switch_ln_left_158d0002f93e70
+          - entity: group.guestroom_lights
             icon: 'mdi:sofa'
             name: Гостиная
           - entity: group.cabinet_lights
@@ -30,7 +30,7 @@ cards:
           - entity: group.bedroom_lights
             icon: 'mdi:bed'
             name: Спальня
-          - entity: light.yeelight_stripe_0x0000000008081785
+          - entity: light.verkhniaia_podsvetka
             icon: 'mdi:brightness-4'
             name: Подсветка
           - entity: group.other_lights
@@ -53,7 +53,7 @@ cards:
               confirmation: true
             show_icon: true
             show_name: true
-            entity: input_boolean.vacation_mode
+            entity: input_boolean.new_year_lights
             
           - type: entity-button
             tap_action:
@@ -121,7 +121,10 @@ cards:
 
       - type: media-control
         entity: media_player.yandex_station_ff98f029499def9d4e5eb925
-        name: Мини в спальне
+        name: Мини на кухне
 
       - type: media-control
-        entity: media_player.lg_webos_smart_tv_2
+        entity: media_player.lg_webos_smart_tv
+        
+      - type: media-control
+        entity: media_player.lg_tv_remote

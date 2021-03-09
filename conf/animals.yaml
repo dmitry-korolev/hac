@@ -1,0 +1,6 @@
+input_datetime:
+  cat_cleanup:
+    name: Время последней уборки
+    has_time: true
+    has_date: true
+    icon: mdi:cat

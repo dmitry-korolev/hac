@@ -16,7 +16,7 @@ cards:
           - entity: switch.wall_switch_ln_right_158d0002f9cb46
             icon: 'mdi:door-closed'
             name: Коридор
-          - entity: switch.wall_switch_ln_left_158d0002f93e70
+          - entity: group.guestroom_lights
             icon: 'mdi:sofa'
             name: Гостиная
           - entity: group.cabinet_lights
@@ -31,6 +31,9 @@ cards:
           - entity: group.bedroom_lights
             icon: 'mdi:bed'
             name: Спальня
+          - entity: light.verkhniaia_podsvetka
+            icon: 'mdi:brightness-4'
+            name: Подсветка
           - entity: group.other_lights
             icon: 'mdi:shower'
             name: Нежилые помещения

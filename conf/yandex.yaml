@@ -32,6 +32,9 @@ yandex_smart_home:
       - switch.wall_switch_ln_right_158d0002f9b1e5 # санузел—д-вентиляция
       - switch.wall_switch_ln_left_158d0002f9b17b_2 # спальня-основной свет
       - switch.wall_switch_ln_right_158d0002f9b17b_2 # спальня-группа у окна
+      - switch.0x00158d0003c73bdb_switch # гирлянда на кухне
+      - switch.0x00158d000247702c_switch # гирлянда в детской
+      - switch.0x588e81fffedbceec # гирлянда в гостиной
       - light.0x00158d00042a8a7d_light # настольная лампа в детской
       - light.0x00158d0004249034_light # настольная лампа в кабинете
       - light.0x00158d0004248f9c_light # настольная лампа Димы в спальне
@@ -43,6 +46,9 @@ yandex_smart_home:
       - vacuum.xiaomi_vacuum_cleaner
       - media_player.lg_webos_smart_tv
       - media_player.yandex_intents
+      
+      - sensor.0xbc33acfffe26dc80_temperature # Температура на кухне
+      - sensor.temperature_158d00025e8a61 # Температура в кабинете
   entity_config:
     switch.wall_switch_ln_left_158d0002f9b20a: 
       name: Освещение
@@ -116,6 +122,21 @@ yandex_smart_home:
       name: Свет у окна
       room: Спальня
       type: devices.types.light
+      
+    switch.0x00158d0003c73bdb_switch:
+      name: Гирлянда
+      room: Кухня
+      type: devices.types.light
+      
+    switch.0x588e81fffedbceec:
+      name: Гирлянда
+      room: Гостиная
+      type: devices.types.light
+    
+    switch.0x00158d000247702c_switch:
+      name: Гирлянда
+      room: Детская
+      type: devices.types.light
 
     light.liustra_v_detskoi:
       name: Люстра
@@ -157,6 +178,24 @@ yandex_smart_home:
       type: devices.types.media_device.tv
       room: Гостиная
       
+    sensor.0xbc33acfffe26dc80_temperature:
+      name: Датчик температуры
+      room: Кухня
+      properties:
+        - type: temperature
+          entity: sensor.0xbc33acfffe26dc80_temperature
+        - type: humidity
+          entity: sensor.0xbc33acfffe26dc80_humidity
+          
+    sensor.temperature_158d00025e8a61:
+      name: Датчик температуры
+      room: Кабинет
+      properties:
+        - type: temperature
+          entity: sensor.temperature_158d00025e8a61
+        - type: humidity
+          entity: sensor.humidity_158d00025e8a61
+
 yandex_station:
   username: !secret yandex_login
   password: !secret yandex_password
@@ -164,7 +203,7 @@ yandex_station:
   devices:
     ff98f029499def9d4e5eb925:
       host: 192.168.0.80
-      name: Станция в спальне
+      name: Станция на кухне
     ff98f02994bc6f9118497cb1:
       host: 192.168.0.2
       name: Станция в детской

@@ -31,3 +31,30 @@ input_boolean:
   right_158d0002f9b1e5:
   left_158d0002f9b17b_2:
   right_158d0002f9b17b_2:
+
+remote:
+  - platform: xiaomi_miio
+    host: 192.168.0.10
+    token: 6bf0e217b748a2c8012f8173fb23ba43
+    commands:
+      toggle:
+        command:
+          raw:nMwmUwlk0msxmEsmszADKcgD7MZuAx4A/gYeBg4HPgM+AR4GngD+BB4EHgUeCl4HXgM+AR4BCzCAAA==
+      breezer_toggle:
+        command:
+          raw:nMwmkwlk0mk2mEsms4ADKagBlNwB/AH8AfwB6BMIAc5jNgDDAIgFkpjNgYmAIUCPwCNBW8AdAnjBeYBe5tMABymQC+go+EP4Q/gEeAQ8wgA=
+      breezer_set_speed_1:
+        command:
+          raw:nMwmMwlk0mk4mEsms3ADKagD+APM2mAA5TIBfwB/AnWYzaaAILMZsAqYBEAzEAjwDXgNaCu4CHgZyED4A/gc6DJYEPgEeAGUwgA=
+      breezer_set_speed_2:
+        command:
+          raw:nMwmEwlk0mk5mEsms3ADKazCWTYBAprMgD5AH8AfwB/AHOYzYAwwCPAI8AjwCIBG8BnwEPAH8CDwGPAQ8AjwCHmEAA==
+      breezer_set_speed_3:
+        command:
+          raw:nMwmMwlk0mk4mEsmoAZzSYSybTAAcpkAGU3ADKagD+AP4A8gb3MZsAoYBHgEeARgPpTGbTYFagjmAhwG9wEJAhYIDASoAIQGVgOpAZYBDQh/ARSYQAA=
+      breezer_mode_in:
+        command:
+          raw:nMwmMwlk0mk4mEsmoAZzUAdppMJZNpgAOUyAPkAeJuBPQA5ATuBfcxmwEhgEeARIFZzGbAqNMZtNgEfAscGfwIfCB0DHwd+BlIBmAw6Ci4AMgolEXKYQAA==
+      breezer_mode_inout:
+        command:
+          raw:nMwmkwlk0mk2mEsms4ADKagBlNwB9m0wAHKZAP+AP4A9ATlMZsAYYAZAEKAj4DXgNeCt4A7gZcEh4FPgZeBV4P3gEfLJhAA=
